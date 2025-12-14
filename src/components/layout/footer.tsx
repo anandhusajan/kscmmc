@@ -5,7 +5,9 @@ import {
   faFacebook,
   faInstagram,
   faYoutube,
-  faLinkedin
+  faLinkedin,
+  faXTwitter,
+  faWhatsapp
 } from '@fortawesome/free-brands-svg-icons';
 import { Logo } from '@/components/shared/logo';
 
@@ -22,10 +24,24 @@ export function Footer() {
             Kerala State Coir Machinery Manufacturing Company Ltd.
           </p>
           <div className="flex justify-center items-center space-x-4">
-            <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faFacebook} className="h-5 w-5" /></Link>
-            <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faInstagram} className="h-5 w-5" /></Link>
-            <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faYoutube} className="h-5 w-5" /></Link>
-            <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" /></Link>
+            <Link href="https://www.facebook.com/kscmmc" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="Facebook">
+              <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+            </Link>
+            <Link href="https://www.instagram.com/kscmmc/" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="Instagram">
+              <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
+            </Link>
+            <Link href="https://www.youtube.com/channel/UCY25NCixlkOXfpY1zSOmwnw" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="YouTube">
+              <FontAwesomeIcon icon={faYoutube} className="h-5 w-5" />
+            </Link>
+            <Link href="https://x.com/kscmmc" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="X (Twitter)">
+              <FontAwesomeIcon icon={faXTwitter} className="h-5 w-5" />
+            </Link>
+            <Link href="https://www.linkedin.com/company/kscmmc/" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="LinkedIn">
+              <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
+            </Link>
+            <Link href="https://wa.me/919961266688" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="WhatsApp">
+              <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5" />
+            </Link>
           </div>
         </div>
 
@@ -37,10 +53,24 @@ export function Footer() {
               KERALA STATE COIR MACHINERY MANUFACTURING COMPANY LTD.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faFacebook} className="h-5 w-5" /></Link>
-              <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faInstagram} className="h-5 w-5" /></Link>
-              <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faYoutube} className="h-5 w-5" /></Link>
-              <Link href="#" className="text-black dark:text-white hover:text-primary transition-colors"><FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" /></Link>
+              <Link href="https://www.facebook.com/kscmmc" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="Facebook">
+                <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.instagram.com/kscmmc/" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="Instagram">
+                <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.youtube.com/channel/UCY25NCixlkOXfpY1zSOmwnw" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="YouTube">
+                <FontAwesomeIcon icon={faYoutube} className="h-5 w-5" />
+              </Link>
+              <Link href="https://x.com/kscmmc" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="X (Twitter)">
+                <FontAwesomeIcon icon={faXTwitter} className="h-5 w-5" />
+              </Link>
+              <Link href="https://linkedin.com/company/kscmmc/" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="LinkedIn">
+                <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
+              </Link>
+              <Link href="https://wa.me/919961266688" target="_blank" rel="noopener noreferrer" className="text-black dark:text-white hover:text-primary transition-colors" aria-label="WhatsApp">
+                <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5" />
+              </Link>
             </div>
           </div>
           <div>

@@ -1,6 +1,9 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useRef, useEffect, useState } from 'react';
 import { getProducts, getProductById } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,40 +11,14 @@ import { Button } from '@/components/ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faArrowRight, faChevronRight, faHome } from '@fortawesome/free-solid-svg-icons';
 import { JsonLd } from '@/components/shared/json-ld';
-import type { Metadata } from 'next';
 import { ProductCard } from '@/components/shared/product-card';
 import { Separator } from '@/components/ui/separator';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 type Props = {
   params: { id: string };
 };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = getProductById(params.id);
-
-  if (!product) {
-    return {
-      title: 'Product Not Found',
-    };
-  }
-
-  return {
-    title: product.name,
-    description: product.shortDescription,
-    openGraph: {
-      title: product.name,
-      description: product.shortDescription,
-      type: 'article',
-    },
-  };
-}
-
-export function generateStaticParams() {
-  const products = getProducts();
-  return products.map(product => ({
-    id: product.id,
-  }));
-}
 
 export default function ProductDetailPage({ params }: Props) {
   const product = getProductById(params.id);
@@ -51,15 +28,77 @@ export default function ProductDetailPage({ params }: Props) {
   }
 
   const allProducts = getProducts();
-  const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 8);
+  // Get products excluding current product
+  const availableProducts = allProducts.filter(p => p.id !== product.id);
+  
+  // Shuffle array to randomize product selection each time page loads
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+  
+  // Get 8 random products - shuffle only once on mount
+  const [relatedProducts] = useState(() => {
+    return shuffleArray(availableProducts).slice(0, 8);
+  });
 
-  const productImage = PlaceHolderImages.find(p => p.id === product.image.id);
+  // Auto-scroll plugin - use useRef like the working home page example
+  const autoplayPlugin = useRef(
+    Autoplay({ 
+      delay: 3000, 
+      stopOnInteraction: false, // Keep running, we'll handle pause manually
+    })
+  );
+
+  const [carouselKey, setCarouselKey] = useState(0);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Handle interaction - pause and resume after delay
+  const handleInteraction = () => {
+    // Clear any existing timeout
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    
+    // Stop the plugin
+    if (autoplayPlugin.current) {
+      autoplayPlugin.current.stop();
+    }
+    
+    // Remount carousel after 3 seconds to resume autoplay
+    resumeTimeoutRef.current = setTimeout(() => {
+      // Recreate plugin and remount carousel
+      autoplayPlugin.current = Autoplay({ 
+        delay: 3000, 
+        stopOnInteraction: false,
+      });
+      setCarouselKey(prev => prev + 1);
+    }, 3000);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Check if image.id is a direct path (starts with /)
+  const isDirectPath = product.image.id.startsWith('/');
+  const productImage = isDirectPath ? null : PlaceHolderImages.find(p => p.id === product.image.id);
+  const imageSrc = isDirectPath ? product.image.id : (productImage?.imageUrl || '');
 
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
-    "image": productImage ? productImage.imageUrl : "",
+    "image": imageSrc,
     "description": product.shortDescription,
     "sku": product.id,
     "brand": {
@@ -118,15 +157,15 @@ export default function ProductDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 gap-6 md:gap-12 md:grid-cols-2">
           <Card>
             <CardContent className="p-0">
-              {productImage && (
-                <div className="relative aspect-video w-full">
-                  <Image
-                    src={productImage.imageUrl}
-                    alt={product.name}
-                    data-ai-hint={productImage.imageHint}
-                    fill
-                    className="rounded-t-lg object-cover"
-                  />
+              {imageSrc && (
+                <div className="relative w-full min-h-[400px] md:min-h-[500px] bg-secondary overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                    <img
+                      src={imageSrc}
+                      alt={product.name}
+                      className="rounded-lg object-contain max-w-full max-h-full w-auto h-full"
+                    />
+                  </div>
                 </div>
               )}
             </CardContent>
@@ -173,14 +212,40 @@ export default function ProductDetailPage({ params }: Props) {
 
         {relatedProducts.length > 0 && (
           <section className="mt-12 md:mt-24">
-            <h2 className="font-headline text-2xl md:text-3xl font-bold text-center">Related Products</h2>
+            <div className="text-center mb-8">
+              <h2 className="font-headline text-2xl md:text-3xl font-bold">Other Products</h2>
+              <p className="mt-2 text-sm md:text-base text-muted-foreground">Explore more of our products</p>
+            </div>
             <Separator className="my-8" />
-            <div className="flex overflow-x-auto pb-6 gap-6 md:gap-8 scrollbar-hide snap-x px-4 -mx-4 md:mx-0">
-              {relatedProducts.map((relatedProduct) => (
-                <div key={relatedProduct.id} className="min-w-[280px] md:min-w-[300px] lg:min-w-[calc(25%-1.5rem)] snap-start">
-                  <ProductCard product={relatedProduct} />
-                </div>
-              ))}
+            <div 
+              className="w-full"
+              onTouchStart={handleInteraction}
+              onMouseEnter={handleInteraction}
+            >
+              <Carousel
+                key={carouselKey}
+                plugins={[autoplayPlugin.current]}
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {relatedProducts.map((relatedProduct) => (
+                    <CarouselItem key={relatedProduct.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                      <ProductCard product={relatedProduct} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+            <div className="mt-6 text-center">
+              <Button asChild variant="outline">
+                <Link href="/products">
+                  View All Products <FontAwesomeIcon icon={faArrowRight} className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </section>
         )}

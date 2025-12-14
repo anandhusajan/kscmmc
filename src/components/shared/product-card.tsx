@@ -12,21 +12,24 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product }: ProductCardProps) {
-  const productImage = PlaceHolderImages.find(p => p.id === product.image.id);
+  // Check if image.id is a direct path (starts with /)
+  const isDirectPath = product.image.id.startsWith('/');
+  const productImage = isDirectPath ? null : PlaceHolderImages.find(p => p.id === product.image.id);
+  const imageSrc = isDirectPath ? product.image.id : (productImage?.imageUrl || '');
 
   return (
     <Card className="flex h-full flex-col overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0">
         <Link href={`/products/${product.id}`} className="block">
-          <div className="relative h-48 w-full">
-            {productImage ? (
-              <Image
-                src={productImage.imageUrl}
-                alt={product.name}
-                data-ai-hint={productImage.imageHint}
-                fill
-                className="object-cover"
-              />
+          <div className="relative h-64 md:h-80 w-full bg-secondary overflow-hidden">
+            {imageSrc ? (
+              <div className="absolute inset-0 flex items-center justify-center p-3 md:p-4">
+                <img
+                  src={imageSrc}
+                  alt={product.name}
+                  className="object-contain max-w-full max-h-full w-auto h-full"
+                />
+              </div>
             ) : (
                 <div className="h-full w-full bg-secondary"></div>
             )}

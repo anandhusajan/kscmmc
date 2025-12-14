@@ -30,6 +30,7 @@ export default function Home() {
   const featuredProducts = getProducts().slice(0, 2);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   const [selectedBannerImage, setSelectedBannerImage] = useState<string | null>(null);
+  const [selectedFacilityImage, setSelectedFacilityImage] = useState<{ src: string; alt: string } | null>(null);
   const latestTender = getTenders()[0];
   const sliderImages = [
     { id: '1', imageUrl: '/images/01.png', description: 'Coir Fiber Processing', imageHint: 'coir fiber' },
@@ -175,30 +176,106 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="py-8 md:py-24">
+      <section id="about" className="py-12 md:py-24 bg-gradient-to-b from-background to-secondary/30">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 items-center gap-6 md:gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="font-headline text-2xl md:text-3xl font-bold text-primary">
-                Pioneers in Coir Mechanization Since 1992
-              </h2>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground">
-                The Kerala State Coir Machinery Manufacturing Company Ltd (KSCMMC) was founded with the mission to manufacture and popularize modern coir processing machinery. We boast advanced manufacturing capabilities including CNC lathes and milling machines, ensuring precision and quality in every product.
-              </p>
-              <Button asChild className="mt-6">
-                <Link href="/about">About Our Company</Link>
-              </Button>
+          <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+            <div className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 mb-4">
+              <span className="text-sm font-semibold text-white uppercase tracking-wide">Our Infrastructure</span>
             </div>
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-lg md:text-xl">Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  To design, develop, and deliver high-quality, efficient, and affordable coir machinery, ensuring the sustainable growth of the coir sector and improving the livelihoods of those who depend on it.
-                </p>
-              </CardContent>
-            </Card>
+            <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              State-of-the-Art Facilities
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Discover our modern infrastructure designed to support innovation and excellence in coir machinery manufacturing
+            </p>
+          </div>
+          
+          <div className="space-y-16 md:space-y-20 max-w-6xl mx-auto">
+            {/* Head Office Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 md:gap-12 items-center">
+              {/* Content Section */}
+              <div className="space-y-6">
+                <div>
+                  <Badge className="mb-4 bg-primary text-white hover:bg-primary/90">
+                    Administrative Hub
+                  </Badge>
+                  <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4">
+                    Head Office
+                  </h3>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+                    Our central administrative facility housing executive offices and strategic planning departments. This modern facility serves as the nerve center for all our operations, ensuring seamless coordination and efficient management.
+                  </p>
+                </div>
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="group"
+                >
+                  <Link href="/about" className="flex items-center gap-2">
+                    Get More Details
+                    <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Image Section */}
+              <Card 
+                className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer"
+                onClick={() => setSelectedFacilityImage({ src: '/company/kscmmc-headoffice.webp', alt: 'Head Office' })}
+              >
+                <div className="relative h-[350px] md:h-[450px] overflow-hidden">
+                  <Image
+                    src="/company/kscmmc-headoffice.webp"
+                    alt="Head Office"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                </div>
+              </Card>
+            </div>
+
+            {/* Factory Building Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8 md:gap-12 items-center">
+              {/* Image Section - Left Side */}
+              <Card 
+                className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer"
+                onClick={() => setSelectedFacilityImage({ src: '/company/kscmmc-factory.webp', alt: 'Factory Building' })}
+              >
+                <div className="relative h-[350px] md:h-[450px] overflow-hidden">
+                  <Image
+                    src="/company/kscmmc-factory.webp"
+                    alt="Factory Building"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                </div>
+              </Card>
+
+              {/* Content Section */}
+              <div className="space-y-6">
+                <div>
+                  <Badge className="mb-4 bg-primary text-white hover:bg-primary/90">
+                    Manufacturing Facility
+                  </Badge>
+                  <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4">
+                    Factory Building
+                  </h3>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+                    Advanced production facility equipped with modern machinery and quality control systems. Our state-of-the-art manufacturing unit ensures precision engineering and superior quality in every product we deliver.
+                  </p>
+                </div>
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="group"
+                >
+                  <Link href="/about" className="flex items-center gap-2">
+                    Get More Details
+                    <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -284,6 +361,28 @@ export default function Home() {
                 src={selectedBannerImage}
                 alt="Banner Image"
                 className="w-full h-full object-contain"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Facility Image Viewer Modal */}
+      <Dialog open={!!selectedFacilityImage} onOpenChange={(open) => !open && setSelectedFacilityImage(null)}>
+        <DialogContent className="max-w-6xl w-full p-0 bg-black/95">
+          {selectedFacilityImage && (
+            <div className="relative w-full min-h-[60vh] max-h-[90vh] flex items-center justify-center p-4">
+              <button
+                onClick={() => setSelectedFacilityImage(null)}
+                className="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors p-2 rounded-full hover:bg-white/10"
+                aria-label="Close"
+              >
+                <FontAwesomeIcon icon={faX} className="h-6 w-6" />
+              </button>
+              <img
+                src={selectedFacilityImage.src}
+                alt={selectedFacilityImage.alt}
+                className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
               />
             </div>
           )}
