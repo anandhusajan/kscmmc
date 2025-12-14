@@ -1,0 +1,124 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Lush green coconut plantation with backwaters in the background.",
+      "imageUrl": "https://images.unsplash.com/photo-1632537777270-5655211329c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2NvbnV0JTIwcGxhbnRhdGlvbnxlbnwwfHx8fDE3NTk3Nzc0NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coconut plantation"
+    },
+    {
+      "id": "banner-coir-fiber",
+      "description": "Natural coir fiber extracted from coconut husks, showcasing the raw material of the coir industry.",
+      "imageUrl": "/images/01.png",
+      "imageHint": "coir fiber natural material"
+    },
+    {
+      "id": "banner-coir-mats",
+      "description": "Beautifully woven coir mats and rugs, demonstrating the finished products of coir manufacturing.",
+      "imageUrl": "/images/02.png",
+      "imageHint": "coir mats woven products"
+    },
+    {
+      "id": "banner-coir-rope",
+      "description": "Strong coir rope being manufactured, showing the versatility of coir products.",
+      "imageUrl": "/images/03.png",
+      "imageHint": "coir rope manufacturing"
+    },
+    {
+      "id": "banner-coir-processing",
+      "description": "Coir processing machinery in action, highlighting modern manufacturing technology.",
+      "imageUrl": "/images/04.png",
+      "imageHint": "coir processing machinery"
+    },
+    {
+      "id": "banner-coconut-husks",
+      "description": "Piles of coconut husks ready for processing into coir fiber, representing the sustainable raw material source.",
+      "imageUrl": "/images/05.png",
+      "imageHint": "coconut husks raw material"
+    },
+    {
+      "id": "product-defibering",
+      "description": "A close-up of a coir defibering machine in operation.",
+      "imageUrl": "https://images.unsplash.com/photo-1718294061732-d705733cb68a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxpbmR1c3RyaWFsJTIwbWFjaGluZXxlbnwwfHx8fDE3NTk3MDM4MDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial machine"
+    },
+    {
+      "id": "product-spinning",
+      "description": "An automatic coir spinning machine creating yarn.",
+      "imageUrl": "https://images.unsplash.com/photo-1655809383399-d02691cbf3d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzcGlubmluZyUyMG1hY2hpbmV8ZW58MHx8fHwxNzU5NzY1MTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spinning machine"
+    },
+    {
+      "id": "product-weaving",
+      "description": "A powerloom weaving a coir mat with intricate patterns.",
+      "imageUrl": "https://images.unsplash.com/photo-1699817702889-01bc4c1a45d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWF2aW5nJTIwbG9vbXxlbnwwfHx8fDE3NTk3NjUxOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "weaving loom"
+    },
+    {
+      "id": "product-geotextiles",
+      "description": "A large roll of coir geotextile fabric.",
+      "imageUrl": "https://images.unsplash.com/photo-1758270804188-8ca0b6d254bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmYWJyaWMlMjByb2xsfGVufDB8fHx8MTc1OTc3NzQ2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fabric roll"
+    },
+    {
+      "id": "product-compactor",
+      "description": "A hydraulic press compacting coir pith.",
+      "imageUrl": "https://images.unsplash.com/photo-1642381071059-7a8c84c197ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxoeWRyYXVsaWMlMjBwcmVzc3xlbnwwfHx8fDE3NTk3NTAzMzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hydraulic press"
+    },
+    {
+      "id": "product-sifter",
+      "description": "A rotary sifter separating coir fibers.",
+      "imageUrl": "https://images.unsplash.com/photo-1645137974422-d71080ea8c4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kdXN0cmlhbCUyMHNpZnRlcnxlbnwwfHx8fDE3NTk3Nzc0NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial sifter"
+    },
+    {
+      "id": "news-1",
+      "description": "A handshake sealing a new partnership agreement.",
+      "imageUrl": "https://images.unsplash.com/photo-1681505531034-8d67054e07f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMGhhbmRzaGFrZXxlbnwwfHx8fDE3NTk3Mzg2ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business handshake"
+    },
+    {
+      "id": "news-2",
+      "description": "Engineers working on a new machine prototype.",
+      "imageUrl": "https://images.unsplash.com/photo-1624640011845-9d04c2514653?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlbmdpbmVlcnMlMjB3b3JraW5nfGVufDB8fHx8MTc1OTc3NzQ2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineers working"
+    },
+    {
+      "id": "news-3",
+      "description": "A stall at an international trade fair.",
+      "imageUrl": "https://images.unsplash.com/photo-1709035986075-202830b69b14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXhoaWJpdGlvbiUyMHN0YWxsfGVufDB8fHx8MTc1OTc3NzQ2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "exhibition stall"
+    },
+    {
+      "id": "about-us-history",
+      "description": "An old photograph of the first KSCMMC factory building.",
+      "imageUrl": "https://images.unsplash.com/photo-1576666735179-f3ad352212c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvbGQlMjBmYWN0b3J5fGVufDB8fHx8MTc1OTc3NjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "old factory"
+    },
+    {
+      "id": "about-us-team-1",
+      "description": "Professional headshot of the CEO.",
+      "imageUrl": "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NTk2OTA0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "about-us-team-2",
+      "description": "Professional headshot of the CTO.",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NTk2OTA0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "about-us-team-3",
+      "description": "Professional headshot of the COO.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NTk2OTA0MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "contact-map",
+      "description": "A map showing the location of KSCMMC headquarters in Alappuzha.",
+      "imageUrl": "https://images.unsplash.com/photo-1570302942055-520658514436?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxBTEFQUFVaSEF8ZW58MHx8fHwxNzU5Nzg2MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Alappuzha map"
+    }
+  ]
+}

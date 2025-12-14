@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode - Vibrant and Colorful */
+    /* Background: Clean white for contrast */
+    --background: 0 0% 100%;
+    --foreground: 220 30% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+    /* Primary: Vibrant deep blue - professional and energetic */
+    --primary: 220 90% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 85% 40%;
+    /* Secondary: Warm teal-blue - fresh and modern */
+    --secondary: 180 40% 95%;
+    --secondary-foreground: 180 50% 25%;
+    /* Muted: Soft blue-gray with warmth */
+    --muted: 200 20% 96%;
+    --muted-foreground: 220 15% 50%;
+    /* Accent: Vibrant cyan-blue - eye-catching */
+    --accent: 195 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 195 80% 50%;
+    /* Destructive: Clear red for errors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    /* Borders & Inputs: Soft blue-gray borders */
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    /* Ring: Vibrant blue matching primary */
+    --ring: 220 90% 35%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode - Black Background */
+    /* Background: Pure black */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    /* Primary: Same vibrant deep blue as light theme - consistent branding */
+    /* Primary: Same vibrant deep blue as light theme - consistent branding */
+    --primary: 220 90% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 85% 40%;
+    /* Secondary: Rich teal-blue - colorful accent */
+    --secondary: 190 40% 20%;
+    --secondary-foreground: 0 0% 100%;
+    /* Muted: Dark gray */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    /* Accent: Bright cyan - vibrant pop */
+    --accent: 185 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 185 80% 65%;
+    /* Destructive: Softer red for dark mode */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    /* Borders & Inputs: Dark gray borders */
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    /* Ring: Deep blue matching primary - consistent branding */
+    --ring: 220 90% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    -webkit-touch-callout: none;
+    overflow-x: hidden;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Dark theme: All text white by default */
+  .dark {
+    color: white;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
