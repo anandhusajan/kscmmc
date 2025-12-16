@@ -11,11 +11,27 @@ type ProductCardProps = {
   product: Product;
 };
 
+// Configuration: Number of days to disable the View Details button (from today)
+const DAYS_TO_DISABLE = 3; // Button will be enabled after 3 days from today
+
+function isViewDetailsEnabled(): boolean {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  // Calculate the enable date (today + DAYS_TO_DISABLE days)
+  const enableDate = new Date(today);
+  enableDate.setDate(today.getDate() + DAYS_TO_DISABLE);
+  
+  // Check if today has reached or passed the enable date
+  return today >= enableDate;
+}
+
 export function ProductCard({ product }: ProductCardProps) {
   // Check if image.id is a direct path (starts with /)
   const isDirectPath = product.image.id.startsWith('/');
   const productImage = isDirectPath ? null : PlaceHolderImages.find(p => p.id === product.image.id);
   const imageSrc = isDirectPath ? product.image.id : (productImage?.imageUrl || '');
+  const viewDetailsEnabled = isViewDetailsEnabled();
 
   return (
     <Card className="flex h-full flex-col overflow-hidden transition-all hover:shadow-lg">
@@ -26,9 +42,9 @@ export function ProductCard({ product }: ProductCardProps) {
               <div className="absolute inset-0 flex items-center justify-center p-3 md:p-4">
                 <img
                   src={imageSrc}
-                  alt={product.name}
+                alt={product.name}
                   className="object-contain max-w-full max-h-full w-auto h-full"
-                />
+              />
               </div>
             ) : (
                 <div className="h-full w-full bg-secondary"></div>
@@ -44,11 +60,17 @@ export function ProductCard({ product }: ProductCardProps) {
         <CardDescription className="mt-2 flex-grow text-sm text-muted-foreground">{product.shortDescription}</CardDescription>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button asChild className="w-full">
-          <Link href={`/products/${product.id}`}>
+        {viewDetailsEnabled ? (
+          <Button asChild className="w-full">
+            <Link href={`/products/${product.id}`}>
+              View Details <FontAwesomeIcon icon={faArrowRight} className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        ) : (
+          <Button disabled className="w-full opacity-50 cursor-not-allowed">
             View Details <FontAwesomeIcon icon={faArrowRight} className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

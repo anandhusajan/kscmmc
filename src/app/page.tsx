@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,19 +28,22 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 export default function Home() {
   const featuredProducts = getProducts().slice(0, 2);
-  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   const [selectedBannerImage, setSelectedBannerImage] = useState<string | null>(null);
   const [selectedFacilityImage, setSelectedFacilityImage] = useState<{ src: string; alt: string } | null>(null);
   const latestTender = getTenders()[0];
+  // Banner images - Recommended size: 1920x1080 (16:9 ratio)
   const sliderImages = [
-    { id: '1', imageUrl: '/images/01.png', description: 'Coir Fiber Processing', imageHint: 'coir fiber' },
-    { id: '2', imageUrl: '/images/02.png', description: 'Coir Mats and Products', imageHint: 'coir mats' },
-    { id: '3', imageUrl: '/images/03.png', description: 'Rope Manufacturing', imageHint: 'coir rope' },
-    { id: '4', imageUrl: '/images/04.png', description: 'Advanced Machinery', imageHint: 'machinery' },
-    { id: '5', imageUrl: '/images/05.png', description: 'Raw Materials', imageHint: 'coconut husks' },
+    { id: '1', imageUrl: '/banner/01.jpg', description: 'Modern coir machinery' },
+    { id: '2', imageUrl: '/banner/02.jpg', description: 'Precision manufacturing' },
+    { id: '3', imageUrl: '/banner/03.jpg', description: 'Advanced production line' },
+    { id: '4', imageUrl: '/banner/04.jpg', description: 'Quality control' },
+    { id: '5', imageUrl: '/banner/05.jpg', description: 'Innovation in coir' },
+    { id: '6', imageUrl: '/banner/06.jpg', description: 'High-capacity operations' },
+    { id: '7', imageUrl: '/banner/07.jpg', description: 'Sustainable processes' },
+    { id: '8', imageUrl: '/banner/08.jpg', description: 'Team excellence' },
   ];
 
-  const plugin = React.useRef(
+  const plugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false })
   );
 
@@ -321,7 +324,7 @@ export default function Home() {
                 <CardHeader>
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div>
-                      <Badge className="bg-secondary-foreground text-white hover:bg-[hsl(180,50%,15%)] dark:bg-secondary-foreground dark:hover:bg-[hsl(190,60%,70%)]">Latest Expression of Interest</Badge>
+                      <Badge className="bg-primary text-white hover:bg-primary/90">Latest Expression of Interest</Badge>
                       <CardTitle className="font-headline mt-2 text-lg md:text-xl">{latestTender.title}</CardTitle>
                     </div>
                     <div className="text-sm text-muted-foreground md:text-right flex-shrink-0">

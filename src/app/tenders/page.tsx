@@ -15,6 +15,15 @@ const isTenderNew = (date: string) => {
   return diffDays <= 7;
 }
 
+const isTenderClosed = (closingDate: string) => {
+  const closing = new Date(closingDate);
+  const now = new Date();
+  // Set time to start of day for accurate comparison
+  closing.setHours(0, 0, 0, 0);
+  now.setHours(0, 0, 0, 0);
+  return now > closing;
+}
+
 export default function TendersPage() {
   // Sort tenders by closing date, most recent first
   const tenders: Tender[] = getTenders().sort((a, b) => new Date(b.closingDate).getTime() - new Date(a.closingDate).getTime());
@@ -55,15 +64,19 @@ export default function TendersPage() {
                       Official Tender Document
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Download for full details and submission guidelines.
+                      {isTenderClosed(tender.closingDate) 
+                        ? 'This tender has closed.' 
+                        : 'Download for full details and submission guidelines.'}
                     </p>
                   </div>
                 </div>
-                <Button asChild className="w-full sm:w-auto">
-                  <a href={tender.documentUrl} download>
-                    <FontAwesomeIcon icon={faDownload} className="mr-2 h-4 w-4" /> Download PDF
-                  </a>
-                </Button>
+                {!isTenderClosed(tender.closingDate) && (
+                  <Button asChild className="w-full sm:w-auto">
+                    <a href={tender.documentUrl} download>
+                      <FontAwesomeIcon icon={faDownload} className="mr-2 h-4 w-4" /> Download PDF
+                    </a>
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>

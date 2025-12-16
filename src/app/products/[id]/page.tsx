@@ -1,9 +1,8 @@
 'use client';
 
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { getProducts, getProductById } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -91,8 +90,7 @@ export default function ProductDetailPage({ params }: Props) {
 
   // Check if image.id is a direct path (starts with /)
   const isDirectPath = product.image.id.startsWith('/');
-  const productImage = isDirectPath ? null : PlaceHolderImages.find(p => p.id === product.image.id);
-  const imageSrc = isDirectPath ? product.image.id : (productImage?.imageUrl || '');
+  const imageSrc = isDirectPath ? product.image.id : (PlaceHolderImages.find(p => p.id === product.image.id)?.imageUrl || '');
 
   const productSchema = {
     "@context": "https://schema.org/",

@@ -1,12 +1,20 @@
 import { getJobs } from '@/lib/data';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLocationDot, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLocationDot, faBriefcase, faPhone, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { formatDateLong } from '@/lib/date-utils';
 
 export default function CareersPage() {
   const jobs = getJobs();
+  
+  // Calculate application deadline (15 days from today)
+  const today = new Date();
+  const deadline = new Date(today);
+  deadline.setDate(today.getDate() + 15);
+  const deadlineDate = formatDateLong(deadline);
 
   return (
     <div className="container mx-auto px-4 md:px-6 pt-4 pb-12 md:py-12">
@@ -21,6 +29,10 @@ export default function CareersPage() {
       </div>
       
       <div className="mt-8 md:mt-12 max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="font-headline text-xl md:text-2xl font-bold mb-2">WANTED PROFESSIONALS</h2>
+          <Badge className="bg-primary text-white">Contract Basis</Badge>
+        </div>
         <h2 className="font-headline text-xl md:text-2xl font-bold mb-6">Current Openings</h2>
         {jobs.length > 0 ? (
           <Accordion type="single" collapsible className="w-full">
@@ -51,20 +63,44 @@ export default function CareersPage() {
         <Card className="mt-8 md:mt-12">
           <CardHeader>
             <CardTitle className="font-headline">How to Apply</CardTitle>
-            <CardDescription>Interested in joining us?</CardDescription>
+            <CardDescription>Application Instructions</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              If you are interested in any of the positions above, or wish to be considered for future openings, please send your resume and a cover letter to our HR department. Make sure to mention the position you are applying for in the subject line.
-            </p>
+          <CardContent className="space-y-4">
+            <div>
+              <p className="text-muted-foreground mb-2">
+                Apply with CV & copies of proof (Age, Qualification, Exp., Caste, Email & Mobile) to:
+              </p>
+              <p className="font-semibold">
+                Managing Director, KSCMMC Ltd.,<br />
+                28/138 CCSB Road, Chungam, Alappuzha- 11
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">
+                Application deadline: <span className="font-semibold text-foreground">{deadlineDate}</span> (superscribe post on envelope)
+              </p>
+            </div>
+            
+            <div className="pt-4 border-t space-y-3">
+              <div className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">Phone:</span>
+                <a href="tel:+919746865370" className="hover:text-primary">+91 9746865370</a>
+                <span className="text-muted-foreground">,</span>
+                <a href="tel:+919746175950" className="hover:text-primary">9746175950</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faGlobe} className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">Website:</span>
+                <a href="https://kscmmc.in" target="_blank" rel="noopener noreferrer" className="hover:text-primary">kscmmc.in</a>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">Email:</span>
+                <a href="mailto:kscmmc1@gmail.com" className="hover:text-primary">kscmmc1@gmail.com</a>
+                <span className="text-muted-foreground">,</span>
+                <a href="mailto:hrkscmmc@gmail.com" className="hover:text-primary">hrkscmmc@gmail.com</a>
+              </div>
+            </div>
           </CardContent>
-          <CardFooter>
-            <Button asChild>
-              <a href="mailto:careers@kscmmc.com">
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2 h-4 w-4" /> Email Your Application
-              </a>
-            </Button>
-          </CardFooter>
         </Card>
       </div>
     </div>

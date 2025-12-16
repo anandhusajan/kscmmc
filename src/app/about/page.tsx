@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent } from '@/components/ui/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 
 const chairman = { 
@@ -19,8 +18,6 @@ const managers = [
 ];
 
 export default function AboutPage() {
-  const historyImage = PlaceHolderImages.find(p => p.id === 'about-us-history');
-
   return (
     <div className="container mx-auto px-4 md:px-6 pt-4 pb-12 md:py-12">
       <div className="text-center">
@@ -35,24 +32,10 @@ export default function AboutPage() {
 
       <section className="mt-8 md:mt-16">
         <Card className="overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {historyImage && (
-              <div className="relative min-h-[300px]">
-                <Image
-                  src={historyImage.imageUrl}
-                  alt={historyImage.description}
-                  data-ai-hint={historyImage.imageHint}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="flex flex-col justify-center p-8">
-              <h2 className="font-headline text-2xl md:text-3xl font-bold">About Us</h2>
-              <p className="mt-4 text-base md:text-base text-muted-foreground">
-                Kerala State Coir Machinery Manufacturing Company (KSCMMC) is a Kerala Government initiative committed to ensuring the development and growth of coir-based industries in Kerala. KSCMMC is situated in Alappuzha (Alleppey), popularly known as the Venice of the East. Alappuzha is the traditional home of the coir industry in Kerala, and coir is the most important commodity manufactured in the region. KSCMMC focuses on the development of coir manufacturing equipment and machinery to boost the growth of the coir industry in India. Our approach is to ensure the advancement of the coir industry by manufacturing coir fibre extraction machinery that is well-equipped, finely designed, optimized for high performance, and easy to operate.
-              </p>
-            </div>
+          <div className="p-8 md:p-10">
+            <p className="text-base md:text-base text-muted-foreground">
+              Kerala State Coir Machinery Manufacturing Company (KSCMMC) is a Kerala Government initiative committed to ensuring the development and growth of coir-based industries in Kerala. KSCMMC is situated in Alappuzha (Alleppey), popularly known as the Venice of the East. Alappuzha is the traditional home of the coir industry in Kerala, and coir is the most important commodity manufactured in the region. KSCMMC focuses on the development of coir manufacturing equipment and machinery to boost the growth of the coir industry in India. Our approach is to ensure the advancement of the coir industry by manufacturing coir fibre extraction machinery that is well-equipped, finely designed, optimized for high performance, and easy to operate.
+            </p>
           </div>
         </Card>
       </section>
