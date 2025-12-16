@@ -196,7 +196,7 @@ export default function RootLayout({
       <body className="font-poppins bg-background text-foreground antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
