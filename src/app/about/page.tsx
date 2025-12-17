@@ -13,8 +13,6 @@ const chairman = {
 const managers = [
   { name: 'Shri. M. K. Sasikumar', role: 'Managing Director', image: '/team/Shri-M-K-Sasikumar.webp' },
   { name: 'Smt. Anie Jula Thomas IAS', role: 'DIRECTOR OF COIR DEVELOPMENT', image: '/team/Smt-Anie-Jula-Thomas-I-A-S.webp' },
-  { name: 'Shri. Siju Jacob', role: 'JOINT SECRETARY', image: '/team/Shri-Siju-Jacob.webp' },
-  { name: 'Shri. Santhosh Kumar', role: 'Director', image: '/team/Shri-Santhosh-Kumar.webp' },
 ];
 
 export default function AboutPage() {

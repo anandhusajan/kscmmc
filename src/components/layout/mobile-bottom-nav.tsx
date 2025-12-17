@@ -30,12 +30,11 @@ export function MobileBottomNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex flex-col items-center justify-center gap-1",
+                "flex flex-col items-center justify-center gap-1 rounded-lg",
                 "text-xs font-medium transition-colors",
-                "hover:bg-primary/10 active:bg-primary/20",
-                isActive 
-                  ? "text-primary" 
-                  : "text-muted-foreground"
+                isActive
+                  ? "text-white bg-[#001837] dark:bg-primary dark:text-white"
+                  : "text-muted-foreground hover:bg-primary/10 active:bg-primary/20"
               )}
             >
               <FontAwesomeIcon 

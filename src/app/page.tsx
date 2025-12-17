@@ -310,11 +310,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="updates" className="py-8 md:py-24">
+      <section id="updates" className="py-8 md:py-24 bg-[#001f3f] text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center">
-            <h2 className="font-headline text-2xl md:text-3xl font-bold">Latest Updates & Tenders</h2>
-            <p className="mx-auto mt-2 max-w-2xl text-sm md:text-base text-muted-foreground">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white">Latest Updates & Tenders</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-sm md:text-base text-white/80">
               Stay informed about our latest Expressions of Interest (EOI) and important announcements.
             </p>
           </div>
