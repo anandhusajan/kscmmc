@@ -278,7 +278,8 @@ const jobs: Job[] = [
     department: 'Contract Basis',
     description: [
       'Qualification: MBA/B.Tech (Mech)',
-      'Experience: 5 years',
+      'Experience: 5 years in manufacturing sector',
+      'Preference will be given in Machinery manufacturing',
       'Age: Below 40 years',
       'Salary: Rs.30,000/-',
     ],
@@ -290,7 +291,8 @@ const jobs: Job[] = [
     department: 'Contract Basis',
     description: [
       'Qualification: MBA/B.Tech (Mech)',
-      'Experience: 2 years',
+      'Experience: 2 years in Marketing sector',
+      'Preference will be given in Machinery and products marketing',
       'Age: Below 35 years',
       'Salary: Rs.28,000/-',
     ],
@@ -302,7 +304,8 @@ const jobs: Job[] = [
     department: 'Contract Basis',
     description: [
       'Qualification: MBA(HRM)',
-      'Experience: 2 years',
+      'Experience: 2 years in HR Department',
+      'Preference will be given in Manufacturing sector',
       'Age: Below 35 years',
       'Salary: Rs.25,000/-',
     ],

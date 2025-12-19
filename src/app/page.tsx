@@ -13,12 +13,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { formatDate } from '@/lib/date-utils';
 import { Badge } from '@/components/ui/badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faArrowRight, 
-  faFileLines, 
-  faChevronDown, 
-  faAward, 
-  faBullseye, 
+import {
+  faArrowRight,
+  faFileLines,
+  faChevronDown,
+  faAward,
+  faBullseye,
   faEye,
   faX
 } from '@fortawesome/free-solid-svg-icons';
@@ -63,7 +63,7 @@ export default function Home() {
               <CarouselContent className="h-full">
                 {sliderImages.map((image, idx) => (
                   <CarouselItem key={image.id} className="h-full">
-                    <div 
+                    <div
                       className="relative h-full w-full bg-gray-100 cursor-pointer"
                       onClick={() => setSelectedBannerImage(image.imageUrl)}
                     >
@@ -192,7 +192,7 @@ export default function Home() {
               Discover our modern infrastructure designed to support innovation and excellence in coir machinery manufacturing
             </p>
           </div>
-          
+
           <div className="space-y-16 md:space-y-20 max-w-6xl mx-auto">
             {/* Head Office Section */}
             <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 md:gap-12 items-center">
@@ -209,9 +209,9 @@ export default function Home() {
                     Our central administrative facility housing executive offices and strategic planning departments. This modern facility serves as the nerve center for all our operations, ensuring seamless coordination and efficient management.
                   </p>
                 </div>
-                <Button 
-                  asChild 
-                  size="lg" 
+                <Button
+                  asChild
+                  size="lg"
                   className="group"
                 >
                   <Link href="/about" className="flex items-center gap-2">
@@ -222,7 +222,7 @@ export default function Home() {
               </div>
 
               {/* Image Section */}
-              <Card 
+              <Card
                 className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer"
                 onClick={() => setSelectedFacilityImage({ src: '/company/kscmmc-headoffice.webp', alt: 'Head Office' })}
               >
@@ -240,7 +240,7 @@ export default function Home() {
             {/* Factory Building Section */}
             <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8 md:gap-12 items-center">
               {/* Image Section - Left Side */}
-              <Card 
+              <Card
                 className="group relative overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-500 shadow-xl hover:shadow-2xl cursor-pointer"
                 onClick={() => setSelectedFacilityImage({ src: '/company/kscmmc-factory.webp', alt: 'Factory Building' })}
               >
@@ -267,9 +267,9 @@ export default function Home() {
                     Advanced production facility equipped with modern machinery and quality control systems. Our state-of-the-art manufacturing unit ensures precision engineering and superior quality in every product we deliver.
                   </p>
                 </div>
-                <Button 
-                  asChild 
-                  size="lg" 
+                <Button
+                  asChild
+                  size="lg"
                   className="group"
                 >
                   <Link href="/about" className="flex items-center gap-2">
@@ -310,11 +310,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="updates" className="py-8 md:py-24 bg-[#001f3f] text-white">
+      <section id="updates" className="py-8 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center">
-            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white">Latest Updates & Tenders</h2>
-            <p className="mx-auto mt-2 max-w-2xl text-sm md:text-base text-white/80">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold">Latest Updates & Tenders</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-sm md:text-base text-muted-foreground">
               Stay informed about our latest Expressions of Interest (EOI) and important announcements.
             </p>
           </div>

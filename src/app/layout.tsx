@@ -133,6 +133,9 @@ export const metadata: Metadata = {
     title: 'KSCMMC - Kerala State Coir Machinery Manufacturing Company Ltd.',
     description: 'Leading manufacturer of coir processing machinery.',
   },
+  icons: {
+    icon: '/favicon/favicon.ico',
+  },
 };
 
 const organizationSchema = {
