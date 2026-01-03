@@ -10,10 +10,8 @@ import { formatDateLong } from '@/lib/date-utils';
 export default function CareersPage() {
   const jobs = getJobs();
   
-  // Calculate application deadline (15 days from today)
-  const today = new Date();
-  const deadline = new Date(today);
-  deadline.setDate(today.getDate() + 15);
+  // Application deadline
+  const deadline = new Date('2026-01-10');
   const deadlineDate = formatDateLong(deadline);
 
   return (

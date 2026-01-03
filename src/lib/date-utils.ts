@@ -1,25 +1,23 @@
 /**
  * Format date consistently to avoid hydration mismatches
- * Always uses en-US locale with explicit format options
+ * Uses dd-mm-yyyy format
  */
 export function formatDate(date: string | Date): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
-  return dateObj.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  });
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+  const year = dateObj.getFullYear();
+  return `${day}-${month}-${year}`;
 }
 
 /**
- * Format date with full month name
+ * Format date with full month name in dd-mm-yyyy format
  */
 export function formatDateLong(date: string | Date): string {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
-  return dateObj.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+  const year = dateObj.getFullYear();
+  return `${day}-${month}-${year}`;
 }
 
